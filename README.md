@@ -4,25 +4,24 @@
 
 # Leonida Platinum — GTA VI Trophy Guide & Tracker
 
-An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI, built for the [make.fun gta6-trophy-guide-01 bounty](https://make.fun/bounty/gta6-trophy-guide-01).
-
-Open `app/index.html` in a browser (or serve `app/` with any static file server) — it works fully offline and loads nothing from the network.
+Leonida Platinum is an offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI, built for the [make.fun gta6-trophy-guide-01 bounty](https://make.fun/bounty/gta6-trophy-guide-01). It is plain static files: open `app/index.html` in a browser (or serve the `app/` folder with any static file server) and it runs fully offline — it loads nothing over the network.
 
 ## What it does
 
-- **Tracker** — every trophy with its official name, description and grade (1 platinum, 2 gold, 6 silver, 46 bronze; 1,350 points in total), earned checkboxes, and counters for trophies PlayStation tracks by a count. Progress is saved in the browser (localStorage) and can be exported to a JSON file, imported back, or shared as a link.
-- **Filters** — by kind (story, missable, collectibles, activities, online), by grade, by earned state, plus text search.
-- **Spoiler setting** — hides the names and descriptions of the 28 hidden trophies until they are earned.
-- **Roadmap to the platinum** — five stages built from the official trophy descriptions, with every missable trophy flagged and its point of no return named. Research found exactly one missable trophy: *Positive Mental Attitude* in Chapter 1.
-- **Guides with sources** — each trophy carries a guide in our own words (what to do, where and how, and when it can be missed) with its sources cited beside it: PowerPyx's trophy guide and roadmap, GTABase's trophy list, Push Square's guide, and GTA Spotter's list collected via PSNProfiles. Official names and descriptions are as PlayStation publishes them, via Exophase and PSNProfiles.
+- **Tracker for the full official list.** Every one of the 55 trophies is shown with its official name, description and grade as PlayStation publishes them: 1 platinum, 2 gold, 6 silver and 46 bronze, worth 1,350 trophy points in total. Each trophy has an earned checkbox, and trophies that PlayStation tracks with a count (challenges, dollar amounts and the like) get a counter stepper. Progress is saved in the browser's localStorage, can be exported to a JSON file and imported back, and can be shared as a progress link that restores the same state when opened.
+- **Filters and search.** Filter the list by kind — story, missable, collectibles, activities and online (the game lists no online trophies, so that filter explains itself rather than pretending) — by grade, and by earned or unearned state, or search names and descriptions as text.
+- **Spoiler setting.** With spoiler mode on, the 28 hidden trophies stay masked as "Hidden Trophy", with their names and descriptions concealed, until you mark them earned.
+- **Roadmap to the platinum.** A five-stage roadmap built from the official trophy descriptions — story first, then the collectibles sweep, the 100% checklist and big grinds, cleanup, and the platinum itself — with each stage listing its trophies. Exactly one trophy is missable: **Positive Mental Attitude**, the Chapter 1 balcony meditation, whose point of no return is the end of Chapter 1; the guide flags it in its own panel, in its detail view, and with a warning banner while it is unearned.
+- **A guide for every trophy, with sources.** Each trophy carries a short guide in our own words — what to do, how, and when it can be missed — with its sources cited beside it: PowerPyx's GTA VI trophy guide and roadmap, GTABase's trophy list, Push Square's trophy guide, and GTA Spotter's list collected via PSNProfiles. The official names and descriptions follow the list as PlayStation publishes it, as listed by Exophase and PSNProfiles. Sources are cited, never copied.
 
 ## Layout
 
-- `app/` — the guide itself: plain static files (`index.html`, `style.css`, `app.js`) with the trophy data in `app/data/trophies.json`. No build step.
-- `screenshots/` — screenshots of the app, stored as base64 text (`.b64`) and decoded by `main.ts` when the entry is handed in.
-- `main.ts` — the hand-in program (Node 22, standard library only): validates the trophy data, copies `app/` and the decoded screenshots to the output directory, and writes the dossier with the vendored make.fun library in `vendor/`.
-- `serve.ts` — a tiny local server for trying the guide: `node serve.ts`, then open http://localhost:8080.
+- `app/` — the guide itself: `index.html`, `style.css`, `app.js`, and `data/trophies.json` (the official list plus each trophy's kind, missable flag, roadmap stage, guide and sources).
+- `screenshots/` — the four screenshots of the app, stored as base64 `.b64` text files; `main.ts` decodes them back to JPEG images when the entry is handed in.
+- `main.ts` — the hand-in program (Node, standard library only): it validates that the data file holds all 55 trophies with a guide each, copies `app/` to the output, decodes the screenshots, and writes the dossier with the vendored library.
+- `vendor/` — the kit's `makefun-frontend.ts` dossier library, kept unchanged.
+- `serve.ts` — serves `app/` locally on port 8080 for trying the guide in a browser.
 
 ## License
 
-MIT — see `LICENSE`.
+MIT — see [LICENSE](LICENSE).
