@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Legend — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="A complete Grand Theft Auto VI trophy guide: all 55 PS5 trophies with a progress tracker, spoiler mode, a platinum roadmap and the one missable you must not skip.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="title-block">
+      <p class="kicker">Grand Theft Auto VI · PlayStation 5</p>
+      <h1>Leonida Legend</h1>
+      <p class="subtitle">The complete trophy guide &amp; tracker — all 55 trophies, one missable, zero online trophies.</p>
+    </div>
+    <div class="progress-panel" aria-label="Your progress">
+      <div class="progress-numbers">
+        <span id="earned-count">0 / 55</span>
+        <span class="progress-sep">trophies</span>
+        <span id="points-count">0 / 1,350 pts</span>
+      </div>
+      <div class="progress-bar" role="progressbar" aria-label="Completion percentage">
+        <div id="progress-fill"></div>
+      </div>
+      <p class="progress-pct"><span id="progress-pct">0%</span> of the road to platinum</p>
+    </div>
+  </div>
+  <div id="missable-alert" class="missable-alert" hidden>
+    <strong>⚠ Missable warning:</strong>
+    <span id="missable-alert-text"></span>
+    <a href="#roadmap">See the missables panel ↓</a>
+  </div>
+</header>
+
+<section class="controls" aria-label="Tracker controls">
+  <div class="control-row">
+    <label class="search-box">
+      <span class="visually-hidden">Search trophies</span>
+      <input id="search" type="search" placeholder="Search names &amp; descriptions…" autocomplete="off">
+    </label>
+    <label>
+      <span class="visually-hidden">Filter by grade</span>
+      <select id="grade-filter">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label>
+      <span class="visually-hidden">Filter by earned state</span>
+      <select id="state-filter">
+        <option value="all">All trophies</option>
+        <option value="earned">Earned</option>
+        <option value="unearned">Unearned</option>
+      </select>
+    </label>
+    <label class="spoiler-toggle">
+      <input id="spoiler-toggle" type="checkbox">
+      <span>Spoiler mode <small>(mask hidden trophies)</small></span>
+    </label>
+  </div>
+  <div class="control-row">
+    <div class="chips" id="kind-chips" role="group" aria-label="Filter by kind">
+      <button type="button" class="chip is-active" data-kind="all">All</button>
+      <button type="button" class="chip" data-kind="story">Story</button>
+      <button type="button" class="chip" data-kind="missable">Missable</button>
+      <button type="button" class="chip" data-kind="collectibles">Collectibles</button>
+      <button type="button" class="chip" data-kind="activities">Activities</button>
+      <button type="button" class="chip" data-kind="online">Online</button>
+    </div>
+    <div class="io-buttons">
+      <button type="button" id="export-btn">Export progress</button>
+      <button type="button" id="import-btn">Import progress</button>
+      <input id="import-file" type="file" accept="application/json,.json" hidden>
+      <button type="button" id="share-btn">Copy share link</button>
+      <button type="button" id="reset-btn" class="danger">Reset</button>
+    </div>
+  </div>
+  <p id="status-line" class="status-line" role="status"></p>
+</section>
+
+<main>
+  <section aria-label="Trophy checklist">
+    <div class="list-head">
+      <h2>Trophy checklist</h2>
+      <p id="list-count" class="list-count"></p>
+    </div>
+    <div id="trophy-list" class="trophy-list"></div>
+    <p id="empty-note" class="empty-note" hidden></p>
+  </section>
+
+  <section id="roadmap" class="roadmap" aria-label="Roadmap to the platinum">
+    <h2>Roadmap to the platinum</h2>
+    <p class="roadmap-intro">Five stages, roughly 200 hours, one playthrough. The whole list is offline single-player — there are no online trophies — the difficulty is moderate (about 4/10), and free-roam continues after the credits, so almost everything can be cleaned up at the end. Almost. Read the missables panel first.</p>
+    <div id="missables-panel" class="missables-panel"></div>
+    <div id="stage-list"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Unofficial fan guide. Trophy names and descriptions are the official PlayStation list for Grand Theft Auto VI (PS5). All guide text here is original writing; per-trophy sources are linked in each trophy's detail view. No affiliation with Rockstar Games or Take-Two Interactive.</p>
+</footer>
+
+<div id="detail-overlay" class="detail-overlay" hidden>
+  <div class="detail-card" role="dialog" aria-modal="true" aria-labelledby="detail-name">
+    <button type="button" id="detail-close" class="detail-close" aria-label="Close detail">×</button>
+    <div id="detail-body"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
